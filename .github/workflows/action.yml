@@ -1,0 +1,28 @@
+name: Action
+on:
+  push:
+    
+jobs:
+  example:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Compose Containers and Run 
+        run: |
+          docker-compose up --abort-on-container-exit
+      
+      - name: check where docker volume is mounted
+        run: docker volume inspect example_reports
+      
+      - name: Fix permissions 
+        run: |
+          sudo chmod ugo+rwx /var/lib/docker/volumes/example_reports/_data/test.txt
+        
+      - name: Upload report.html
+        uses: actions/upload-artifact@v2
+        with:
+          name: test.txt
+          path: /var/lib/docker/volumes/example_reports/_data/test.txt
