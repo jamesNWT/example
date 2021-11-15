@@ -6,8 +6,8 @@ services:
     build:
       context: .
     volumes:
-      - reports:/home/reports
-    command: ["sudo touch /home/reports/test.txt"]
+      - reports:/home/reports:z
+    command: ["touch /home/reports/test.txt"]
 
 volumes:
   reports:
