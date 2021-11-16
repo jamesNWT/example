@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   example:
-    user: '1001:121'
+    # user: '1001:121'
     build:
       context: .
     volumes:
