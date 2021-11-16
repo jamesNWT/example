@@ -7,7 +7,7 @@ services:
       context: .
     volumes:
       - reports:/home/reports
-    command: ["chown 1000:1000 /home/reports && touch /home/reports/test.txt"]
+    command: ["id"]
 
 volumes:
   reports:

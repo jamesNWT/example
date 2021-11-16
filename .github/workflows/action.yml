@@ -16,13 +16,16 @@ jobs:
       
       - name: check where docker volume is mounted
         run: docker volume inspect example_reports
+
+      - name: id
+        run: id
       
-      - name: Fix permissions 
-        run: |
-          sudo chmod ugo+rwx /var/lib/docker/volumes/example_reports/_data/test.txt
+      # - name: Fix permissions 
+      #   run: |
+      #     sudo chmod ugo+rwx /var/lib/docker/volumes/example_reports/_data/test.txt
         
-      - name: Upload report.html
-        uses: actions/upload-artifact@v2
-        with:
-          name: test.txt
-          path: /var/lib/docker/volumes/example_reports/_data/test.txt
+      # - name: Upload report.html
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: test.txt
+      #     path: /var/lib/docker/volumes/example_reports/_data/test.txt
