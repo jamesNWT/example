@@ -22,10 +22,11 @@ jobs:
       
       - name: Fix permissions 
         run: |
-          chown -R runner:docker /var/lib/docker/volumes/example_reports/_data/
+          sudo cp /var/lib/docker/volumes/example_reports/_data/test.txt /home/
+          && sudo chmod ugo+rwx /home/test.txt
         
       - name: Upload report.html
         uses: actions/upload-artifact@v2
         with:
           name: test.txt
-          path: /var/lib/docker/volumes/example_reports/_data/test.txt
+          path: /home/test.txt
