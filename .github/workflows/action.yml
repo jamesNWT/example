@@ -22,7 +22,7 @@ jobs:
       
       - name: Fix permissions 
         run: |
-          sudo chown -R runner:docker /var/lib/docker/volumes/example_reports/_data/
+          chown -R runner:docker /var/lib/docker/volumes/example_reports/_data/
         
       - name: Upload report.html
         uses: actions/upload-artifact@v2
