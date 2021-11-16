@@ -7,7 +7,7 @@ services:
       context: .
     volumes:
       - reports:/home/reports
-    command: ["id"]
+    command: ["touch /home/reports/test.txt"]
 
 volumes:
   reports:
