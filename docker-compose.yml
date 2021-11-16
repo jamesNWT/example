@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   example:
-    user: '1000:1000'
+    user: '1001:121'
     build:
       context: .
     volumes:
@@ -11,3 +11,6 @@ services:
 
 volumes:
   reports:
+
+# id inside docker: uid=1000 gid=1000
+# id of runner: uid=1001 gid=121
